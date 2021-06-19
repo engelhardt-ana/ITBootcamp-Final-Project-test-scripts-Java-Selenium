@@ -28,7 +28,7 @@ public class LoginPage extends BasicPage {
 	}
 
 	public void rememberMe() {
-		getRememberMe().click();
+		this.getRememberMe().click();
 	}
 
 	public WebElement getLoginBtn() {
@@ -36,9 +36,9 @@ public class LoginPage extends BasicPage {
 	}
 
 	public void login(String email, String password) {
-		getEmailField().sendKeys(email);
-		getPasswordField().sendKeys(password);
-		getLoginBtn().click();
+		this.getEmailField().sendKeys(email);
+		this.getPasswordField().sendKeys(password);
+		this.getLoginBtn().click();
 	}
 
 }
