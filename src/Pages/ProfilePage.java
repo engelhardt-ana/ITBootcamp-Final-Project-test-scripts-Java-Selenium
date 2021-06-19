@@ -15,7 +15,6 @@ public class ProfilePage extends BasicPage {
 
 	}
 
-
 	public WebElement getFirstName() {
 		return this.driver.findElement(By.name("user_first_name"));
 	}
