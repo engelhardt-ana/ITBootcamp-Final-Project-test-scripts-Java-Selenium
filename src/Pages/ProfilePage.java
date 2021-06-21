@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -72,7 +71,6 @@ public class ProfilePage extends BasicPage {
 
 	}
 
-
 	public WebElement getSaveInfoBtn() {
 		WebElement div = this.driver.findElement(By.className("col-lg-12"));
 		return div.findElement(By.name("btn_submit"));
@@ -91,7 +89,7 @@ public class ProfilePage extends BasicPage {
 		// put info
 
 		this.getFirstName().sendKeys(firstName);
-		this.getLastName().sendKeys(lastName);	
+		this.getLastName().sendKeys(lastName);
 		this.getAddress().sendKeys(address);
 		this.getPhone().sendKeys(phone);
 		this.getZipCode().sendKeys(zipCode);

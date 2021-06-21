@@ -2,6 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,8 +37,8 @@ public class LoginPage extends BasicPage {
 	}
 
 	public void login(String email, String password) {
-		this.getEmailField().sendKeys(email);
-		this.getPasswordField().sendKeys(password);
+		this.getEmailField().sendKeys(Keys.chord(Keys.CONTROL, "a", email));
+		this.getPasswordField().sendKeys(Keys.chord(Keys.CONTROL, "a", password));
 		this.getLoginBtn().click();
 	}
 
