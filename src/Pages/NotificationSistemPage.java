@@ -16,7 +16,7 @@ public class NotificationSistemPage extends BasicPage {
 
 	public WebElement getMsg() {
 		return this.driver.findElement(By.xpath(
-				"○	//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"));
+				"//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"));
 
 	}
 

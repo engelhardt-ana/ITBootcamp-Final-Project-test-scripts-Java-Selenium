@@ -15,12 +15,10 @@ public class LoginPage extends BasicPage {
 	}
 
 	public WebElement getEmailField() {
-		this.driver.findElement(By.name("username")).clear();
 		return this.driver.findElement(By.name("username"));
 	}
 
 	public WebElement getPasswordField() {
-		this.driver.findElement(By.name("password")).clear();
 		return this.driver.findElement(By.name("password"));
 	}
 

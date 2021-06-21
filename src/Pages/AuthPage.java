@@ -1,5 +1,7 @@
 package Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +25,9 @@ public class AuthPage extends BasicPage {
 	}
 
 	public WebElement getLogoutBtn() {
-		return this.driver.findElement(By.linkText("My Logout"));
+		List<WebElement> logoutBtns = this.driver.findElement(By.className("my-account-dropdown"))
+				.findElements(By.tagName("li"));
+		return logoutBtns.get(1);
 	}
 
 	public void logout() {

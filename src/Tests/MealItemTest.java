@@ -1,5 +1,5 @@
 package Tests;
 
-public class MealItemTest {
+public class MealItemTest extends BasicTest {
 
 }

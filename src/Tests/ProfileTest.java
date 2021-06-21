@@ -22,12 +22,12 @@ public class ProfileTest extends BasicTest {
 		this.locationPopupPage.closeDialogue();
 		this.loginPage.login(this.email, this.password);
 		Thread.sleep(3000);
-				
+
 		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains(loginMsg), errorLoginMsg);
 		Thread.sleep(3000);
 		this.driver.navigate().to(baseUrl + "/member/profile");
 		this.profilePage.changePersonalInfo("Anastasia", "Engelhardt", "27 Marta", "0000111111", "34000",
-				"United States", "Alabama", "Alabaster");
+				"United Kingdom", "Aberdeen", "Cleveland");
 		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains(setupMsg), errorSetupMsg);
 		this.authPage.logout();
 		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains(logoutMsg), errorLogoutMsg);
@@ -36,29 +36,27 @@ public class ProfileTest extends BasicTest {
 	}
 
 	@Test(priority = 5)
-	public void changeProfileImage () throws InterruptedException, IOException {
+	public void changeProfileImage() throws InterruptedException, IOException {
 		this.driver.navigate().to(this.baseUrl + "guest-user/login-form");
 		this.locationPopupPage.closeDialogue();
 		this.loginPage.login(this.email, this.password);
 		Thread.sleep(3000);
 		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains(loginMsg), errorLoginMsg);
 		Thread.sleep(3000);
-		this.driver.navigate().to(baseUrl + "/member/profile");
+		this.driver.navigate().to(baseUrl + "member/profile");
 		String imgPath = new File("img/img.jpg").getCanonicalPath();
 		this.profilePage.UploadPic(imgPath);
-		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains("Profile Image Uploaded Successfully"), "[ERROR]: Profile Image  isn't Uploaded Successfully ");
+		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains("Profile Image Uploaded Successfully"),
+				"[ERROR]: Profile Image  isn't Uploaded Successfully ");
 		this.waiter.until(ExpectedConditions.invisibilityOf(this.notificationSistemPage.getMsg()));
 		this.profilePage.removePhoto();
-		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains("Profile Image Deleted Successfully"), "[ERROR]: Profile Image isnt Deleted Successfully ");
+		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains("Profile Image Deleted Successfully"),
+				"[ERROR]: Profile Image isnt Deleted Successfully ");
 		this.waiter.until(ExpectedConditions.invisibilityOf(this.notificationSistemPage.getMsg()));
 		this.authPage.logout();
-		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains("Logout Successfull!"), "[ERROR]: Logout isnt Successfull ");
+		this.sa.assertTrue(this.notificationSistemPage.getMsgText().contains("Logout Successfull!"),
+				"[ERROR]: Logout isnt Successfull ");
 		this.sa.assertAll();
 	}
-	
-	
-	
-	
-	
-	
+
 }

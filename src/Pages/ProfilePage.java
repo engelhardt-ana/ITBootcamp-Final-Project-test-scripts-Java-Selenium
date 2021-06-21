@@ -1,9 +1,12 @@
 package Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -56,7 +59,7 @@ public class ProfilePage extends BasicPage {
 	}
 
 	public void getState(String stateName) {
-		this.selectCountry().selectByVisibleText(stateName);
+		this.selectState().selectByVisibleText(stateName);
 
 	}
 
@@ -67,13 +70,14 @@ public class ProfilePage extends BasicPage {
 	}
 
 	public void getCity(String cityName) {
-		this.selectCountry().selectByVisibleText(cityName);
+		this.selectCity().selectByVisibleText(cityName);
 
 	}
 
 	public WebElement getSaveInfoBtn() {
-		WebElement div = this.driver.findElement(By.className("col-lg-12"));
-		return div.findElement(By.name("btn_submit"));
+		List<WebElement> saveBtns = this.driver.findElements(By.name("btn_submit"));
+		this.waiter.until(ExpectedConditions.elementToBeClickable(saveBtns.get(0)));
+		return saveBtns.get(0);
 	}
 
 	public void changePersonalInfo(String firstName, String lastName, String address, String phone, String zipCode,
@@ -86,6 +90,7 @@ public class ProfilePage extends BasicPage {
 		this.getPhone().clear();
 		this.getZipCode().clear();
 
+		Thread.sleep(3000);
 		// put info
 
 		this.getFirstName().sendKeys(firstName);

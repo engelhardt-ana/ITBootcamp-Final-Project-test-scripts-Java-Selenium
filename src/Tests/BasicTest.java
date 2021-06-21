@@ -44,7 +44,7 @@ public abstract class BasicTest {
 	protected ProfilePage profilePage;
 	protected SearchResultPage searchResultPage;
 
-	protected String baseUrl = "http://demo.yo-meals.com";
+	protected String baseUrl = "http://demo.yo-meals.com/";
 	protected String email = "customer@dummyid.com";
 	protected String password = "12345678a";
 
@@ -66,8 +66,8 @@ public abstract class BasicTest {
 		profilePage = new ProfilePage(driver, waiter, js);
 		searchResultPage = new SearchResultPage(driver, waiter, js);
 
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		driver.manage().window().maximize();
 
