@@ -72,7 +72,7 @@ public class ProfilePage extends BasicPage {
 
 	}
 
-//*[@class="row"][5]//input
+
 	public WebElement getSaveInfoBtn() {
 		WebElement div = this.driver.findElement(By.className("col-lg-12"));
 		return div.findElement(By.name("btn_submit"));
@@ -91,7 +91,7 @@ public class ProfilePage extends BasicPage {
 		// put info
 
 		this.getFirstName().sendKeys(firstName);
-		this.getLastName().sendKeys(lastName);
+		this.getLastName().sendKeys(lastName);	
 		this.getAddress().sendKeys(address);
 		this.getPhone().sendKeys(phone);
 		this.getZipCode().sendKeys(zipCode);
