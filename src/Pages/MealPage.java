@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,8 +16,9 @@ public class MealPage extends BasicPage {
 
 	}
 
+//className itemfav
 	public WebElement getFavorite() {
-		return this.driver.findElement(By.id("item_95"));
+		return this.driver.findElement(By.className("itemfav"));
 	}
 
 	public void favorite() {
@@ -38,8 +40,7 @@ public class MealPage extends BasicPage {
 	}
 
 	public void addToCart(String quantity) throws InterruptedException {
-		this.getQuantity().clear();
-		this.getQuantity().sendKeys(quantity);
+		this.getQuantity().sendKeys(Keys.chord(Keys.CONTROL, "a", quantity));
 		Thread.sleep(3000);
 		this.getAddToCartBtn().click();
 	}
