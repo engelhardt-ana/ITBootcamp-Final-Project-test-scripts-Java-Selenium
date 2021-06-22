@@ -17,20 +17,20 @@ public class SearchResultPage extends BasicPage {
 	}
 
 	
-	public List<WebElement> getResults() {
+	public List<WebElement> meals() {
 		return this.driver.findElements(By.xpath("//*[@class='product-name']/a"));
 
 	}
 
 	public int getNumResults() {
-		return getResults().size();
+		return meals().size();
 	}
 
-	public ArrayList<String> getTextResults() {
+	public ArrayList<String> getProductName() {
 		String meal = "";
 		ArrayList<String> meals = new ArrayList<String>();
 		for (int i = 0; i < getNumResults() -1 ; i++) {
-			meal = getResults().get(i).getText();
+			meal = meals().get(i).getText();
 			meals.add(meal);
 		}
 		return meals;
