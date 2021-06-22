@@ -39,8 +39,9 @@ public class MealPage extends BasicPage {
 
 	}
 
-	public void addToCart(String quantity) throws InterruptedException {
-		this.getQuantity().sendKeys(Keys.chord(Keys.CONTROL, "a", quantity));
+	public void addToCart(int quantity) throws InterruptedException {
+		String quantString = String.valueOf(quantity); 
+		this.getQuantity().sendKeys(Keys.chord(Keys.CONTROL, "a", quantString));
 		Thread.sleep(3000);
 		this.getAddToCartBtn().click();
 	}
